@@ -13,9 +13,21 @@ tickets_collection = db["tickets"]
 # Route to fetch and display a transcript
 @app.route("/transcript/<transcript_id>")
 def view_transcript(transcript_id):
-    transcript = tickets_collection.find_one({"_id": ObjectId(transcript_id)})
+    transcript = None
+
+    # Try fetching by ObjectId first
+    try:
+        transcript = tickets_collection.find_one({"_id": ObjectId(transcript_id)})
+    except:
+        pass  # If it's not an ObjectId, ignore the error
+
+    # If not found, try fetching by string ID
+    if not transcript:
+        transcript = tickets_collection.find_one({"_id": transcript_id})
+
     if transcript:
         return render_template("transcript.html", transcript=transcript["transcript"])
+    
     return "Transcript not found.", 404
 
 if __name__ == "__main__":

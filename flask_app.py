@@ -5,9 +5,9 @@ from bson import ObjectId
 app = Flask(__name__)
 
 # MongoDB Connection (Replace with your actual Mongo URI)
-MONGO_URI = "mongodb://mongo:cOYgsQfGSjjbgWAAJUzgAoIkITbPcEGA@tramway.proxy.rlwy.net:28168"
+MONGO_URI = "mongodb://mongo:EfirGNiXIZxbpMDgmxewBgNuluVTEyOu@mongodb.railway.internal:27017"
 client = MongoClient(MONGO_URI)
-db = client["ticket_bot"]
+db = client["FCRPbot"]
 tickets_collection = db["tickets"]
 
 # Route to fetch and display a transcript

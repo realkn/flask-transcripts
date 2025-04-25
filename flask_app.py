@@ -5,7 +5,7 @@ from bson import ObjectId
 app = Flask(__name__)
 
 # MongoDB Connection (Replace with your actual Mongo URI)
-MONGO_URI = "mongodb://mongo:EfirGNiXIZxbpMDgmxewBgNuluVTEyOu@mongodb.railway.internal:27017"
+MONGO_URI = "mongodb://mongo:AobdFfdVCrIZSpNWnkBmZeMFYJpzkuSZ@mongodb.railway.internal:27017"
 client = MongoClient(MONGO_URI)
 db = client["FCRPbot"]
 tickets_collection = db["tickets"]
